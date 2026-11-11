@@ -741,14 +741,14 @@ def plot_seasonality_heatmap(prices, ticker_name):
 plot_seasonality_heatmap(jswsteel_long, "JSWSTEEL.NS")
 
 
-Step15
+# Step 15: Calculate April Monthly Returns
 
 monthly_ret = jswsteel_long.resample("ME").last().pct_change() * 100
 april_returns = monthly_ret[monthly_ret.index.month == 4]
 print(april_returns)
 
 
-Step16
+# Step 16: Compare April Returns With and Without 2021
 
 # Average with 2021 excluded, to see the "normal year" picture
 april_ex_2021 = april_returns[april_returns.index.year != 2021]
